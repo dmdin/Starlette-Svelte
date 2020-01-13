@@ -1,23 +1,42 @@
 <script>
 	import { onMount } from 'svelte'
-	export let name;
 	var data = [];
-
+	let text = "www";
 	async function getData() {
-		let resp = await fetch('/api/homepage');
-		data = await resp.text();
+		let response = await fetch('/api/homepage').then(response => response.json());
+		data = response['user'];
 	}
-	onMount(getData())
+	onMount(getData);
+
+	async function postInput(){
+		let form = FormData();
+		form.append('name', text);
+		await fetch('/api/homepage', {
+			method: 'POST',
+			body: form
+		});
+	}
 
 </script>
 
 <style>
 	h1 {
-		color: purple;
+		color: deepskyblue;
 	}
 </style>
 
-<h1>Hello {name}!</h1>
+
 {#await data then gotten}
-	<p>Got: {gotten}</p>
+	{#each gotten as element}
+		<li>{element}</li>
+	{/each}
 {/await}
+
+<h1>List</h1>
+<form>
+	Name: <input type="text" bind:value={text}>
+</form>
+<button on:click={postInput()}>Add new!</button>
+<h2>{text}</h2>>
+
+
