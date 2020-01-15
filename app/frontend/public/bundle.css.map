@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "..\\App.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n\timport { onMount } from 'svelte'\n\tvar data = [];\n\tlet text = \"\";\n\tasync function getData() {\n\t\tdata = await fetch('/api/').then(response => response.json());\n\t}\n\tonMount(getData);\n\n\tasync function postInput(){\n\t\t// alert('Into')\n\t\tlet form = new FormData();\n\t\tform.append('name', text);\n\t\tdata = await fetch('/api/', {\n\t\t\tmethod: 'POST',\n\t\t\tbody: form\n\t\t}).then(response => response.json());\n\t}\n\n</script>\n\n<style>\n\th1 {\n\t\tcolor: deepskyblue;\n\t}\n</style>\n\n<h1>List</h1>\n{#await data then gotten}\n\t{#each gotten as element}\n\t\t<li>{element}</li>\n\t{/each}\n{/await}\n\n<form>\n\tName: <input type=\"text\" bind:value={text}>\n</form>\n<button on:click={postInput}>Add new</button>\n<h2>{text}</h2>>\n\n\n"
+  ],
+  "names": [],
+  "mappings": "AAsBC,EAAE,eAAC,CAAC,AACH,KAAK,CAAE,WAAW,AACnB,CAAC"
+}

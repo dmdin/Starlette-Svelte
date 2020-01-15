@@ -3,8 +3,7 @@
 	var data = [];
 	let text = "";
 	async function getData() {
-		let response = await fetch('/api/homepage').then(response => response.json());
-		data = response['user'];
+		data = await fetch('/api/').then(response => response.json());
 	}
 	onMount(getData);
 
@@ -12,11 +11,10 @@
 		// alert('Into')
 		let form = new FormData();
 		form.append('name', text);
-		let response = await fetch('/api/homepage', {
+		data = await fetch('/api/', {
 			method: 'POST',
 			body: form
 		}).then(response => response.json());
-		data = response['user']
 	}
 
 </script>

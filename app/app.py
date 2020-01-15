@@ -1,12 +1,10 @@
 from starlette.applications import Starlette
-from starlette.routing import Mount, Route
-from starlette.staticfiles import StaticFiles
-from starlette.config import Config
+from starlette.routing import Mount
 from api import routes as api_routes
 from view import routes as view_routes
 import uvicorn
 
-from tortoise import Tortoise, run_async
+from tortoise import Tortoise
 
 
 async def startup():
