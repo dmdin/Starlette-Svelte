@@ -3,7 +3,7 @@ Simple example of full-stack async app with REST-API build on modern and powerfu
 
 ### Used frameworks:
 - [Svelte](https://svelte.dev/) : Cybernetically enhanced web apps
-- [Starlette](https://starlette.io/) : The little ASGI framework that shines
+- [Starlette](https://www.starlette.io/) : The little ASGI framework that shines
 - [Tortoise ORM](https://tortoise-orm.readthedocs.io/en/latest/) : Easy-to-use asyncio ORM inspired by Django
 
 ### Installation
