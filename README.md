@@ -19,7 +19,7 @@ $ python3 db_init.py
 ### Deployment
 Now you are ready to run app. For more details you can check [Uvicorn documentation](https://www.uvicorn.org/deployment/)
 ```sh
-uvicorn app:app
+$ uvicorn app:app
 ```
 ### That`s all! Your app is ready to shine :star2:
 
