@@ -26,4 +26,4 @@ routes = [
 app = Starlette(routes=routes, on_startup=[startup], on_shutdown=[shutdown])
 
 if __name__ == '__main__':
-    uvicorn.run(app, reload=True)
+    uvicorn.run('app:app', reload=True)
