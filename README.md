@@ -1,4 +1,4 @@
-# Starlette-Svelte-Tortoise template app :sparkles:
+# Starlette Svelte Tortoise template app :sparkles:
 Simple example of full-stack async app with REST-API build on modern and powerful frameworks with Django like style to be used in other projects
 
 ### Used frameworks:
