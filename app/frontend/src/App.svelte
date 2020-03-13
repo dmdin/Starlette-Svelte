@@ -20,22 +20,43 @@
 </script>
 
 <style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+    }
 	h1 {
 		color: deepskyblue;
+        font-size: 3em;
 	}
+    li {
+        list-style-type: none;
+        font-size: 1.2em;
+    }
+    .form {
+        display: flex;
+        flex-direction: row;
+    }
+
 </style>
 
-<h1>List</h1>
+<body>
+<h1>Tournament List</h1>
+
+<div class="form">
+    <form>
+        Name: <input type="text" bind:value={text}>
+    </form>
+    <button on:click={postInput}>Add new</button>
+</div>
+
+<div>
 {#await data then gotten}
 	{#each gotten as element}
 		<li>{element}</li>
 	{/each}
 {/await}
-
-<form>
-	Name: <input type="text" bind:value={text}>
-</form>
-<button on:click={postInput}>Add new</button>
-<h2>{text}</h2>>
-
+</div>
+</body>
 
